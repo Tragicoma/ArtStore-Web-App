@@ -1,9 +1,8 @@
-﻿@*
-*@
+﻿
 <head>
     <style>
 
-        .split {
+        /*        .split {
             height: 100%;
             width: 50%;
             position: fixed;
@@ -29,7 +28,7 @@
         }
             .centered img {
                 width: 400px;
-            }
+            }*/
         .mytext{
            width:500px;
            height:300px;
@@ -37,23 +36,32 @@
         .mytext2 {
             width: 500px;
         }
-        
 
+        .wrapper {
+            display: grid;
+            padding:75px;
+            grid-template-columns: 50% 50%;
+            grid-gap: 100px;
+            line-height: 2.1;
+            /*font: lighter;
+            font-size: 17px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*/*/
+        }
     </style>
 </head>
-@{
-    <div class="split left">
-        <div class="centered">
+
+<body>
+    <div class="wrapper">
+
+        <div>
             <h2>You can find us on social media</h2>
             <p>Instagram:  _ArtsShop</p>
             <p>Facebook:  _ArtsShop</p>
             <p>Our location Somewhere on Earth-123 or you can look in the map</p>
-            <img src="https://previews.123rf.com/images/moloko88/moloko881502/moloko88150200014/36385927-cartoon-map-with-river.jpg" />
-        </div>
-    </div>
+            <img src="~/pic/map.jpg" style="height:200px; width:300px;" />
 
-    <div class="split right">
-        <div class="centered">
+        </div>
+        <div>
             <h2>You can also send us a message</h2>
             <form action="/action_page.php">
                 <label for="e-mail">Please enter your e-mail</label>
@@ -63,5 +71,7 @@
                 <input type="submit" value="Send">
             </form>
         </div>
+
     </div>
-}
+</body>
+
