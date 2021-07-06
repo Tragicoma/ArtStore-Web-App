@@ -1,5 +1,65 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+<head>
+    <style>
+
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+        .left {
+            left: 0;
+            background-color: #fff;
+        }
+        .right {
+            right: 0;
+            background-color: #ffffff;
+        }
+            .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+            .centered img {
+                width: 400px;
+            }
+        .button {
+            width: 100%;
+            height: 100%;
+            padding: 2px;
+            margin: 2px;
+        }
+
+    </style>
+</head>
 @{
+    <div class="split left">
+        <div class="centered">
+            <h2>You can find us on social media</h2>
+            <p>Instagram:  _ArtsShop</p>
+            <p>Facebook:  _ArtsShop</p>
+            <p>Our location Somewhere on Earth-123 or you can look in the map</p>
+            <img src="https://previews.123rf.com/images/moloko88/moloko881502/moloko88150200014/36385927-cartoon-map-with-river.jpg" />
+        </div>
+    </div>
+
+    <div class="split right">
+        <div class="centered">
+            <h2>You can also send us a message</h2>
+            <form action="/action_page.php">
+                <label for="e-mail">Please enter your e-mail</label>
+                <input type="text" id="e-mail" e-mail="e-mail"><br><br>
+                <label for="lname">Please enter the message</label>
+                <input type="text" id="message" message="message"><br><br>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>
 }
