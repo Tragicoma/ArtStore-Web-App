@@ -1,4 +1,4 @@
-﻿
+﻿<!DOCTYPE html>
 <head>
     <style>
 
@@ -6,79 +6,67 @@
             display: grid;
             grid-template-columns: 50% 50%;
             grid-gap: 10px;
-            line-height: 2.1;
+            line-height: 2.0;
             font: lighter;
             /*font-size: 17px;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*/*//**/
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*/ /**/
         }
+        .lines{
+            line-height:2.0;
+        }
+
         .mytext {
             width: 550px;
-            height:300px;
+            height: 300px;
         }
+
         .mytext2 {
             width: 550px;
-            
         }
     </style>
 </head>
-
-@*<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <style>
-        *{
-            margin:0;
-            padding:0;
-        }
-        .map{
-            height:500px;
-            width: 100%;
-        }
-        
-
-    </style>
-</head>
-<body>
-    <div id="map"></div>
-
-    <script>
-        function initMap() {
-            var location = { lat: -3.2028, lng: 73.2207 };
-            var map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 4,
-                center: location
-            });
-        }
-    </script>
-
-</body>
-</html>*@
-
-
 
 <body>
     <div class="wrapper">
-    <div>
+        <div>
             <h2>You can find us on social media</h2>
             <p>Instagram:  _ArtsShop</p>
             <p>Facebook:  _ArtsShop</p>
             <p>we are located in Bali or you can look in the map</p>
             @*<img src="~/pic/map.jpg" style="height:200px; width:300px;" />*@
-            <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1010290.7975268234!2d114.51105816599815!3d-8.455697404655568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd22f7520fca7d3%3A0x2872b62cc456cd84!2sBali!5e0!3m2!1sen!2slv!4v1625602951332!5m2!1sen!2slv" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
+            
+            <html>
+            <head>
+                <title></title>
+                <style>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .map {
+                        height: 500px;
+                        width: 100%;
+                    }
+                </style>
+            </head>
+            <body>
+                <div id="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7885.712892163568!2d115.11212177425021!3d-8.799554574720919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd245154d864c41%3A0xaac6f51b3bd20fcb!2sDreamland%20Beach!5e0!3m2!1sen!2slv!4v1625657961223!5m2!1sen!2slv" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </body>
+        </html>
 
         </div>
 
-
         <div>
-            <!doctype html>
+            
             <html lang="en">
             <head>
                 <meta charset="utf-8" />
                 <title>Contact Form</title>
             </head>
-            <body>
-
+            <body >
                 <form action="https://formsubmit.co/annabusele@inbox.lv" method="POST">
                     <input type="hidden" name="_captcha" value="false" />
                     <h2>You can also send us a message</h2>
@@ -93,14 +81,14 @@
         </html>
 
         @*<form action="/action_page.php">
-            <label for="e-mail">Please enter your e-mail</label>
-            <input type="text" id="e-mail" e-mail="e-mail" class="mytext2"><br><br>
-            <label for="lname">Please enter the message</label>
-            <input type="text" id="message" message="message" class="mytext"><br><br>
-            <input type="submit" value="Send">
-        </form>*@
-        </div>
-
+                <label for="e-mail">Please enter your e-mail</label>
+                <input type="text" id="e-mail" e-mail="e-mail" class="mytext2"><br><br>
+                <label for="lname">Please enter the message</label>
+                <input type="text" id="message" message="message" class="mytext"><br><br>
+                <input type="submit" value="Send">
+            </form>*@
     </div>
+
+</div>
 </body>
 
