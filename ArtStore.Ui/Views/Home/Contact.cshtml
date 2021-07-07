@@ -4,12 +4,20 @@
 
         .wrapper {
             display: grid;
-            grid-template-columns: 45% 10% 45%;
+            grid-template-columns: 50% 50%;
             grid-gap: 10px;
             line-height: 2.1;
             font: lighter;
-            font-size: 17px;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*//**/
+            /*font-size: 17px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*/*//**/
+        }
+        .mytext {
+            width: 550px;
+            height:300px;
+        }
+        .mytext2 {
+            width: 550px;
+            
         }
     </style>
 </head>
@@ -75,7 +83,7 @@
                     <input type="hidden" name="_captcha" value="false" />
                     <h2>You can also send us a message</h2>
                     <input type="text" name="text" placeholder="Enter your name" required class="mytext2" />
-                    <input type="email" name="email" placeholder="Email Address" required class="mytext2" />
+                    <input type="email" name="email" placeholder="Entr e-mail Address" required class="mytext2" />
                     <input type="hidden" name="_next" value="http://localhost:7366/Home/Contact/pages/thanks.html" />
                     <input type="text" name="name" placeholder="Write your message here" required class="mytext">
                     <button type="submit">Send</button>
