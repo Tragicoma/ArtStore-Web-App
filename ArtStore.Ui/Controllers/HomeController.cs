@@ -23,7 +23,10 @@ namespace ArtStore.Ui.Controllers
             return View();
         }
 
-
+        public IActionResult ThankYou()
+        {
+            return View();
+        }
 
         public IActionResult Contact()
         {
