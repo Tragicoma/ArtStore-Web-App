@@ -10,7 +10,7 @@ namespace ArtStore.Ui.Models
         int ID { get; set; }
         string Name { get; set; }
         double Pride { get; set; }
-        paintingAuthor Author { get; set; }
+        PaintingAuthorModel Author { get; set; }
 
     }
 }
