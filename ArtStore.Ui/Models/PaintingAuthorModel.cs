@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ArtStore.Ui.Models
 {
-    public class paintingAuthor
+    public class PaintingAuthorModel
     {
         int Id { get; set; }
         string FullName { get; set; }
