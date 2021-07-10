@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,13 @@ namespace ArtStore.Ui.Controllers
 {
     public class ShopController : Controller
     {
+        private readonly IMapper _mapper;
+
+        public ShopController(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
+
         public IActionResult Order()
         {
             return View();

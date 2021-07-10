@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace ArtStore.Ui.Models
+namespace ArtStore.Entity
 {
-    public class paintingAuthor
+    public class PaintingAuthorDTO
     {
         int Id { get; set; }
         string FullName { get; set; }

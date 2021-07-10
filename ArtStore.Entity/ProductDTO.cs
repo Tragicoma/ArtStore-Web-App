@@ -1,20 +1,16 @@
-﻿using ArtStore.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace ArtStore.Ui.Models
+namespace ArtStore.Entity
 {
-    public class ProductModel
+    public class ProductDTO
     {
         int ID { get; set; }
         string Name { get; set; }
         double Price { get; set; }
-        paintingAuthorModel Author { get; set; }
+        PaintingAuthorDTO Author { get; set; }
         string Description { get; set; }
         paintingCategoryDTO Category { get; set; }
-
-
     }
 }
