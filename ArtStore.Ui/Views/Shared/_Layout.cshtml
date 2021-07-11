@@ -1,11 +1,19 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/d3814f3c81.js" crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SHOP </title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .pink-icon {
+            color: plum;
+            font-size: x-large;
+            padding: 10px
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,16 +29,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>
-                        <li class="nav-item" >
+                        <li class="nav-item">
                             <a asp-area="" asp-controller="Shop" asp-action="Order">
                                 <svg height="45" width="45">
-                                    <circle cx="25" cy="25" r="18" stroke="silver" stroke-width="4" fill="plum" />
+                                    @*<circle cx="25" cy="25" r="18" stroke="silver" stroke-width="4" fill="plum" />*@
+                                    <i class="fas fa-shopping-basket" style="color:plum; font-size:x-large"></i>
                                 </svg>
                             </a>
                         </li>
                         @*calculates current cart sum*@
                         <li>
-                            (0,00  &nbsp;&euro;) 
+                            (0,00  &nbsp;&euro;)
                         </li>
                     </ul>
                 </div>
@@ -43,10 +52,24 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="display:grid; grid-template-columns: 25% 25% 25% 25%;">
+        <div class="container">
+
+        </div>
+        <div class="container">
+            <a href="https://www.instagram.com/bali" target="_blank"><i class="fab fa-instagram pink-icon"></i></a>
+            <a href="https://www.facebook.com/BaliBohemia" target="_blank"><i class="fab fa-facebook-square pink-icon"></i></a>
+            <a href="https://www.artstation.com/artwork/lOvYo" target="_blank"><i class="fab fa-artstation pink-icon"></i></a>
+            <a href="https://www.youtube.com/watch?v=KxQIcxlMudw&ab_channel=simplehappiness" target="_blank"><i class="fab fa-youtube pink-icon"></i></a>
+
+        </div>
+        <div class="container">
+           
+        </div>
         <div class="container">
             &copy; 2021 - SHOP
         </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
