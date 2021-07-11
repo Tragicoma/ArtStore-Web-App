@@ -24,5 +24,6 @@ namespace ArtStore.Ui.Controllers
         {
             return View();
         }
+
     }
 }

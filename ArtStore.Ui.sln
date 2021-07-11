@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{2757A0D5-F753-4EBC-95E6-3E4614A4D0AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtStore.Entity", "ArtStore.Entity\ArtStore.Entity.csproj", "{C1C53975-A5E8-4971-A48B-7D8912BA99FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtStore.Entity", "ArtStore.Entity\ArtStore.Entity.csproj", "{C1C53975-A5E8-4971-A48B-7D8912BA99FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
