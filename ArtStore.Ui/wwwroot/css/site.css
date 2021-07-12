@@ -70,3 +70,56 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Open Sanas";
+}
+
+.category_container {
+    width: 1100px;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.category_item {
+    float: left;
+    width: 20%;
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+    color: black;
+}
+
+    .category_item:hover {
+        background-color: plum;
+        color: white;
+    }
+
+.block_container {
+    width: 800px;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.art_item {
+    box-sizing: border-box;
+    float: left;
+    padding: 2px;
+    width: 20%;
+    transition: all 0.4s ease-in-out;
+}
+
+.hide {
+    transform: scale(0);
+    width: 0;
+    padding: 0;
+    transition: all 0.4s ease-in-out;
+}
+

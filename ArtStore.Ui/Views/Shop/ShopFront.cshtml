@@ -69,10 +69,10 @@
                 } else {
                     $('.art_item').addClass('hide');
                     setTimeout(function () {
-                        $('.' + category.removeClass('hide'));
-                    }, 300);
-                }
-            });
+                        $('.' + category).removeClass('hide');
+                }, 300);
+                
+            };
         });
     </script>
 </head>
@@ -89,12 +89,12 @@
     <div class="block_container">
         <img src="~/exampleForShopFront/vincents.jpg" class="art_item classic" />
         <img src="~/exampleForShopFront/perle.jpg" class="art_item classic" />
-        <img src="~/exampleForShopFront/memes.jpg" class="art_item memes" />
-        <img src="~/exampleForShopFront/memes1.jpeg" class="art_item memes" />
+        <img src="~/exampleForShopFront/memes.jpg" class="art_item meme" />
+        <img src="~/exampleForShopFront/memes1.jpeg" class="art_item meme" />
         <img src="~/exampleForShopFront/graffiti1.jpg" class="art_item graffiti" />
         <img src="~/exampleForShopFront/graffiti2.jpg" class="art_item graffiti" />
-        <img src="~/exampleForShopFront/animalw.jpg" class="category_item animal" />
-        <img src="~/exampleForShopFront/animaldear.jpg" class="category_item animal" />
+        <img src="~/exampleForShopFront/animalw.jpg" class="art_item animal" />
+        <img src="~/exampleForShopFront/animaldear.jpg" class="art_item animal" />
 
     </div>
 </body>
