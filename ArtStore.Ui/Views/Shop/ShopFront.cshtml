@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-
 <style>
     *{
         margin: 0;
@@ -51,17 +50,37 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="~/css/syle.css" />
-    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="js/functionality.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css" />
 
+    <script>
+        $(document).ready(function () {
+            $('.category_item').click(function () {
+                var category = $(this).attr('id');
+
+                if (category == 'all') {
+                    $('.art_item').addClass('hide');
+                    setTimeout(function () {
+                        $('.art_item').removeClass('hide');
+                    }, 300);
+
+                } else {
+                    $('.art_item').addClass('hide');
+                    setTimeout(function () {
+                        $('.' + category.removeClass('hide'));
+                    }, 300);
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
     <div class="category_container">
         <p class="category_item" id="all">ALL</p>
-        <p class="category_item" id="graffiti">GRAFFITIES</p>
+        <p class="category_item" id="graffiti">GRAFFITIE</p>
         <p class="category_item" id="classic">CLASSICS</p>
         <p class="category_item" id="animal">ANIMALS</p>
         <p class="category_item" id="meme">MEMES</p>
@@ -74,11 +93,9 @@
         <img src="~/exampleForShopFront/memes1.jpeg" class="art_item memes" />
         <img src="~/exampleForShopFront/graffiti1.jpg" class="art_item graffiti" />
         <img src="~/exampleForShopFront/graffiti2.jpg" class="art_item graffiti" />
-        <img src="~/exampleForShopFront/animalw.jpg" class="art_item animal" />
-        <img src="~/exampleForShopFront/animaldear.jpg" class="art_item animal" />
-
-
+        <img src="~/exampleForShopFront/animalw.jpg" class="category_item animal" />
+        <img src="~/exampleForShopFront/animaldear.jpg" class="category_item animal" />
 
     </div>
-
 </body>
+
