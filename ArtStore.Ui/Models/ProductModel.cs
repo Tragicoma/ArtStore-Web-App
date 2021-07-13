@@ -13,7 +13,7 @@ namespace ArtStore.Ui.Models
         double Price { get; set; }
         paintingAuthorModel Author { get; set; }
         string Description { get; set; }
-        paintingCategoryDTO Category { get; set; }
+        paintingCategoryEnum Category { get; set; }
 
 
     }

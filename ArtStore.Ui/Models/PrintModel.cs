@@ -8,6 +8,6 @@ namespace ArtStore.Ui.Models
 {
     public class PrintModel : PaintingModel
     {
-        printSizeDTO Size { get; set; }
+        printSizeEnum Size { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ArtStore.Ui.Models;
+using BLL;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -20,6 +21,10 @@ namespace ArtStore.Ui.Controllers
 
         public IActionResult Index()
         {
+            var bll = new SomethingUseful();
+
+            var result = bll.Method("something");
+
             return View();
         }
 
