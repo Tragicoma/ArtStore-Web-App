@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ArtStore.Entity
 {
-    public enum orderStatusDTO
+    public enum orderStatusEnum
     {
         Created,
         Approved,

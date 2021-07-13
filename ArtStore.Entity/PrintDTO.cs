@@ -6,6 +6,6 @@ namespace ArtStore.Entity
 {
     public class PrintDTO : ProductDTO
     {
-        printSizeDTO Size { get; set; }
+        printSizeEnum Size { get; set; }
     }
 }

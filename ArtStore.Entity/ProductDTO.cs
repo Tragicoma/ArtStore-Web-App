@@ -11,6 +11,6 @@ namespace ArtStore.Entity
         double Price { get; set; }
         PaintingAuthorDTO Author { get; set; }
         string Description { get; set; }
-        paintingCategoryDTO Category { get; set; }
+        paintingCategoryEnum Category { get; set; }
     }
 }

@@ -22,6 +22,7 @@ namespace ArtStore.Ui.Controllers
         }
         public IActionResult ShopFront()
         {
+
             return View();
         }
 

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ArtStore.Entity
 {
-    public enum printSizeDTO
+    public enum printSizeEnum
     {
         S,
         M,

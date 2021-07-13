@@ -13,7 +13,7 @@ namespace ArtStore.Ui.Models
         BasketModel OrderBasket { get; set; }
         string Email { get; set; }
         string ClientName { get; set; }
-        orderStatusDTO Status { get; set; }
+        orderStatusEnum Status { get; set; }
 
     }
 }

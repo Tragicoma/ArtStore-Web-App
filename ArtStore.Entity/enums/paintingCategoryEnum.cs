@@ -2,7 +2,7 @@
 
 namespace ArtStore.Entity
 {
-    public enum paintingCategoryDTO
+    public enum paintingCategoryEnum
     {
         Portrait,
         Landscape,
