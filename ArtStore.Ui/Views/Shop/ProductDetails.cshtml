@@ -1,23 +1,108 @@
 ﻿<!DOCTYPE html>
 <style>
+    .shop-item {
+        margin: 30px;
+    }
 
+    .shop-item-title {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .shop-item-image {
+        height: 250px;
+    }
+
+    .shop-item-details {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+    }
+
+    .shop-item-price {
+        flex-grow: 1;
+        color: #333;
+    }
+
+    .shop-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .btn {
+        text-align: center;
+        vertical-align: middle;
+        padding: .67em .67em;
+        cursor: pointer;
+    }
+    .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .col-2 {
+    flex-basis: 50%;
+    min-width: 300px;
+}
 </style>
+<script>
+    function addToCartClicked(event) {
+        var button = event.target
+        var shopItem = button.parentElement.parentElement
+        var title = shopItem.getElementByClassName('shop-item-title')[0].innerText
+        var price = shopItem.getElementByClassName('shop-item-price')[0].innerText
+        var imageSrc = shopItem.getElementByClassName('shop-item-image')[0].imageSrc
+        console.log(title, price, imageSrc)
+        addItemTOCart(title, price, imageSrc)
+    }
+
+    //function AddItemToBasket(title, price, imageSrc)
+    //{
+    //    var basketRow = document.createElement('div')
+    //    var basketItems = document.getElementsByClassName('cart')
+    //}
+
+</script>
 
 <body>
     <div class="small_container single-product">
         <div class="row">
             <div class="col-2">
-                <img src="~/exampleForShopFront/vincents.jpg" width="70" />
+                <img src="~/exampleForShopFront/vincents.jpg" width="100" />
             </div>
             <div class="col-2">
                 <p>Vincents</p>
                 <h1>Starry night</h1>
                 <h4>20EUR</h4>
                 <input type="number" value="1" />
-                <a href="" class="btn">Add to Basket</a>
+                <button class="btn btn-add" type="button">Add to Basket</button>
                 <h3>Product details</h3>
                 <p>Buy a small piece of Vincet history.</p>
             </div>
         </div>
     </div>
 </body>
+
+@*<body>
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <div class="shop-item">
+                    <span class="shop-item-title">Starry Night</span>
+                    <img class="shop-item-image" src="~/exampleForShopFront/vincents.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">20EUR</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO BASKET</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>*@
