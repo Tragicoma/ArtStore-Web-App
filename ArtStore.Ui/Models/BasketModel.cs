@@ -7,8 +7,8 @@ namespace ArtStore.Ui.Models
 {
     public class BasketModel
     {
-        List<ProductModel> Products { get; set; }
-        double Sum { get; set; }
+        public List<ProductModel> Products { get; set; }
+        public double Sum { get; set; }
 
     }
 }

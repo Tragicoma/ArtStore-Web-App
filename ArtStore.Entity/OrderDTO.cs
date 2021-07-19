@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace ArtStore.Entity
 {
     public class OrderDTO
     {
-        int Id { get; set; }
-        DateTime Date { get; set; }
-        BasketDTO OrderBasket { get; set; }
-        string Email { get; set; }
-        string ClientName { get; set; }
-        orderStatusEnum Status { get; set; }
+        [Key]
+        public int Id { get; set; }
+
+        public DateTime Date { get; set; }
+        public string Email { get; set; }
+        public string ClientName { get; set; }
+        public int Status { get; set; }
     }
 }

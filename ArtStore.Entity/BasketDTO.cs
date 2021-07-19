@@ -6,7 +6,7 @@ namespace ArtStore.Entity
 {
     public class BasketDTO
     {
-        List<ProductDTO> Products { get; set; }
-        double Sum { get; set; }
+        public List<OrderLineDTO> Products { get; set; }
+        public double Sum { get; set; }
     }
 }

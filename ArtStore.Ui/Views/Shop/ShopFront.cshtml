@@ -1,10 +1,90 @@
-﻿<!DOCTYPE html>
+﻿@model List<ProductModel>
+
+
+<!DOCTYPE html>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        font-family: "Open Sanas";
+    }
+
+    .category_container {
+        width: 1100px;
+        display: block;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .category_item {
+        float: left;
+        width: 20%;
+        background-color: white;
+        padding: 20px 0;
+        text-align: center;
+        cursor: pointer;
+        font-size: 15px;
+        color: black;
+    }
+
+        .category_item:hover {
+            background-color: plum;
+            color: white;
+        }
+
+    .block_container {
+        width: 800px;
+        display: block;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .art_item {
+        box-sizing: border-box;
+        float: left;
+        padding: 2px;
+        width: 20%;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .hide {
+        transform: scale(0);
+        width: 0;
+        padding: 0;
+        transition: all 0.4s ease-in-out;
+    }
+</style>
+
 <head>
     <link rel="stylesheet" type="text/css" href="~/css/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="js/functionality.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css" />
 
+    <script>
+        $(document).ready(function () {
+            $('.category_item').click(function () {
+                var category = $(this).attr('id');
+
+                if (category == 'all') {
+                    $('.art_item').addClass('hide');
+                    setTimeout(function () {
+                        $('.art_item').removeClass('hide');
+                    }, 300);
+
+                } else {
+                    $('.art_item').addClass('hide');
+                    setTimeout(function () {
+                        $('.' + category).removeClass('hide');
+                    }, 300);
+                }
+
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -16,68 +96,22 @@
         <p class="category_item" id="meme">MEMES</p>
     </div>
 
-    <div class="small_container">
-        <h2 class="title">Paintings</h2>
-        <div class="row">
-            <div class="art_item classic col-4 ">
-                <a asp-controller="Shop" asp-action="ProductDetails">
-                    <img src="~/exampleForShopFront/vincents.jpg"/>
-                    <h4>Vincents</h4>
-                    <p>20EUR</p>
-                </a>
-            </div>
-
-            <div class="art_item classic col-4">
-                <img src="~/exampleForShopFront/perle.jpg"/>
-                <h4>Perle</h4>
-                <p>15EUR</p>
-            </div>
-
-            <div class="art_item meme col-4">
-                <img src="~/exampleForShopFront/memes.jpg" />
-                <h4>Meme</h4>
-                <p>10EUR</p>
-            </div>
-
-            <div class="art_item meme col-4">
-                <img src="~/exampleForShopFront/memes1.jpeg"/>
-                <h4>Meme1</h4>
-                <p>23EUR</p>
-            </div>
-
-            <div class="art_item graffiti col-4">
-                <img src="~/exampleForShopFront/graffiti1.jpg" />
-                <h4>Graffiti</h4>
-                <p>25EUR</p>
-            </div>
-
-            <div class="art_item graffiti col-4">
-                <img src="~/exampleForShopFront/graffiti2.jpg" />
-                <h4>Graffiti2</h4>
-                <p>30EUR</p>
-            </div>
-
-            <div class="art_item animal col-4">
-                <img src="~/exampleForShopFront/animaldear.jpg"/>
-                <h4>Animal</h4>
-                <p>40EUR</p>
-            </div>
-
-            <div class="art_item animal col-4">
-                <img src="~/exampleForShopFront/animalw.jpg"/>
-                <h4>Animal2</h4>
-                <p>29EUR</p>
-            </div>
-        </div>
-
-        @*<img src="~/exampleForShopFront/vincents.jpg" class="art_item classic" />
-            <img src="~/exampleForShopFront/perle.jpg" class="art_item classic" />
-            <img src="~/exampleForShopFront/memes.jpg" class="art_item meme" />
-            <img src="~/exampleForShopFront/memes1.jpeg" class="art_item meme" />
-            <img src="~/exampleForShopFront/graffiti1.jpg" class="art_item graffiti" />
-            <img src="~/exampleForShopFront/graffiti2.jpg" class="art_item graffiti" />
-            <img src="~/exampleForShopFront/animalw.jpg" class="art_item animal" />
-            <img src="~/exampleForShopFront/animaldear.jpg" class="art_item animal" />*@
+    <div class="block_container">
+        <img src="~/exampleForShopFront/vincents.jpg" class="art_item classic" />
+        <img src="~/exampleForShopFront/perle.jpg" class="art_item classic" />
+        <img src="~/exampleForShopFront/memes.jpg" class="art_item meme" />
+        <img src="~/exampleForShopFront/memes1.jpeg" class="art_item meme" />
+        <img src="~/exampleForShopFront/graffiti1.jpg" class="art_item graffiti" />
+        <img src="~/exampleForShopFront/graffiti2.jpg" class="art_item graffiti" />
+        <img src="~/exampleForShopFront/animalw.jpg" class="art_item animal" />
+        <img src="~/exampleForShopFront/animaldear.jpg" class="art_item animal" />
     </div>
+
+
+    @*@foreach (var product in @Model)
+    {
+        <label>@product.Name</label>
+    }*@
+
 </body>
 

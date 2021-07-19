@@ -6,7 +6,7 @@ namespace ArtStore.Entity
 {
     public class PaintingDTO : ProductDTO
     {
-        string Size { get; set; }
-        bool IsAvailable { get; set; }
+        public string Size { get; set; }
+        public bool IsAvailable { get; set; }
     }
 }

@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace ArtStore.Entity
 {
     public class ProductDTO
     {
-        int ID { get; set; }
-        string Name { get; set; }
-        double Price { get; set; }
-        PaintingAuthorDTO Author { get; set; }
-        string Description { get; set; }
-        paintingCategoryEnum Category { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public PaintingAuthorDTO Author { get; set; }
+        public string Description { get; set; }
+        public int Category { get; set; }
+        public string Picture { get; set; }
     }
 }
+

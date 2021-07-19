@@ -1,3 +1,4 @@
+using ArtStore.DAL.Context;
 using ArtStore.Ui.Mapping;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
@@ -58,6 +59,11 @@ namespace ArtStore.Ui
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            using ( var context = new StoreDbContext () )
+            {
+                context.Database.EnsureCreated();
+            }
         }
     }
 }

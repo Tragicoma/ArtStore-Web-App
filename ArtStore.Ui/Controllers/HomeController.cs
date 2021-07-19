@@ -21,9 +21,9 @@ namespace ArtStore.Ui.Controllers
 
         public IActionResult Index()
         {
-            var bll = new SomethingUseful();
+            //var bll = new SomethingUseful();
 
-            var result = bll.Method("something");
+            //var result = bll.Method("something");
 
             return View();
         }

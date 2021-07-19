@@ -7,9 +7,9 @@ namespace ArtStore.Ui.Models
 {
     public class paintingAuthorModel
     {
-        int Id { get; set; }
-        string FullName { get; set; }
-        string Country { get; set; }
-        string Portfolio { get; set; } // link to somewhere?
+        public int Id { get; set; }
+        public string FullName { get; set; }
+        public string Country { get; set; }
+        public string Portfolio { get; set; } // link to somewhere?
     }
 }

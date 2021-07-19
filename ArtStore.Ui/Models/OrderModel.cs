@@ -8,12 +8,11 @@ namespace ArtStore.Ui.Models
 {
     public class OrderModel
     {
-        int Id { get; set; }
-        DateTime Date { get; set; }
-        BasketModel OrderBasket { get; set; }
-        string Email { get; set; }
-        string ClientName { get; set; }
-        orderStatusEnum Status { get; set; }
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public string Email { get; set; }
+        public string ClientName { get; set; }
+        public orderStatusEnum Status { get; set; }
 
     }
 }

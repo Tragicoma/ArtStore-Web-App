@@ -12,13 +12,13 @@ namespace ArtStore.Ui.Mapping
     {
         public MappingProfile()
         {
+            CreateMap<BasketDTO, BasketModel>();
+            CreateMap<OrderDTO, OrderModel>();
+            CreateMap<PaintingAuthorDTO,paintingAuthorModel>();
+            CreateMap<PaintingDTO,PaintingModel>();
+            CreateMap<ProductDTO, ProductModel>();
+            CreateMap<OrderLineDTO, OrderLineModel>();
 
-            CreateMap<BasketModel, BasketDTO>();
-            CreateMap<OrderModel, OrderDTO>();
-            CreateMap<paintingAuthorModel, PaintingAuthorDTO>();
-            CreateMap<PaintingModel, PaintingDTO>();
-            CreateMap<PrintModel, PrintDTO>();
-            CreateMap<ProductModel, ProductDTO>();
         }
     }
 }
