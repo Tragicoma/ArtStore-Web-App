@@ -6,18 +6,11 @@ $(document).ready(function () {
     $('.category_item').click(function () {
         var category = $(this).attr('id');
 
-        if (category == 'all') {
-            $('.art_item').addClass('hide');
-            setTimeout(function () {
-                $('.art_item').removeClass('hide');
-            }, 300);
 
-        } else {
-            $('.art_item').addClass('hide');
-            setTimeout(function () {
-                $('.' + category).removeClass('hide');
-            }, 300);
-        }
+        $('.art_item').css('display', 'none');
+        setTimeout(function () {
+            $('.' + category).css('display', '');
+        }, 300);
 
     });
 
@@ -27,6 +20,7 @@ $(document).ready(function () {
     }
 
 });
+
 
 
 
