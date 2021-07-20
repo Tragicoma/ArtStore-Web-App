@@ -29,7 +29,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>
-                        <li class="nav-item">
+                        <li id="basket" class="nav-item">
                             <a asp-area="" asp-controller="Shop" asp-action="Order">
                                 <svg height="45" width="45">
                                     @*<circle cx="25" cy="25" r="18" stroke="silver" stroke-width="4" fill="plum" />*@
@@ -39,7 +39,10 @@
                         </li>
                         @*calculates current cart sum*@
                         <li>
-                            0,00  &nbsp;&euro;
+                            @*(0,00  &nbsp;&euro;)*@
+                            <label id="price">
+
+                            </label>
                         </li>
                     </ul>
                 </div>

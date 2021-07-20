@@ -20,6 +20,14 @@ $(document).ready(function () {
         }
 
     });
+
+    function AddToBasket()
+    {
+        $('#price').text('10')
+    }
+
 });
+
+
 
 
