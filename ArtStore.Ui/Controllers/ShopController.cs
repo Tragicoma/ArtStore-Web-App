@@ -20,10 +20,20 @@ namespace ArtStore.Ui.Controllers
         }
 
         public IEnumerable<ProductDTO> Products { get; set; }
+
         public IActionResult Order()
         {
             return View();
         }
+
+        public IActionResult ProductDetails(ProductModel pModel)
+        { 
+
+
+
+            return View(pModel);
+        }
+
         public IActionResult ShopFront()
         {
 
@@ -41,29 +51,8 @@ namespace ArtStore.Ui.Controllers
                 list.Add(model);
             }
 
-
-            
-
-            //var p1 = new ProductModel()
-            //{
-            //    Name = "dasd",
-            //};
-            //var p2 = new ProductModel()
-            //{
-            //    Name = "dasd66",
-            //};
-
-            //list.Add(p1);
-            //list.Add(p2);
-
             return View(list);
 
-
-        }
-
-        public IActionResult ProductDetails()
-        {
-            return View();
         }
 
     }
