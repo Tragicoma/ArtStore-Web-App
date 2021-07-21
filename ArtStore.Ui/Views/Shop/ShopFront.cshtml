@@ -12,10 +12,10 @@
 <body>
     <div class="category_container">
         <p class="category_item" id="all">ALL</p>
-        <p class="category_item" id="1">PORTRAITS</p>
-        <p class="category_item" id="2">LANDSCAPES</p>
-        <p class="category_item" id="graffiti">GRAFFITIE</p>
-        <p class="category_item" id="meme">MEMES</p>
+        <p class="category_item" id="1">LANDSCAPE</p>
+        <p class="category_item" id="2">MARINE</p>
+        <p class="category_item" id="3">DIGITAL ART</p>
+        <p class="category_item" id="4">OTHER</p>
     </div>
 
 
@@ -31,7 +31,7 @@
                     <a asp-controller="Shop" asp-action="ProductDetails">
                         <img src="~/pic/Pic1.jpg" />
                         <h4> @product.Name </h4>
-                        <p> @product.Price</p>
+                        <p> @product.Price.ToString("C")</p>
                     </a>
                 </div>
 
