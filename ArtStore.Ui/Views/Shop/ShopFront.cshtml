@@ -29,9 +29,9 @@
 
                 <div class="art_item @product.Category col-4 ">
                     <a asp-controller="Shop" asp-action="ProductDetails">
-                        <img src="~/pic/Pic1.jpg" />
+                        <img src="~/pic/@product.Picture" />
                         <h4> @product.Name </h4>
-                        <p> @product.Price.ToString("C")</p>
+                        <p> @product.Price.ToString("N") &euro;</p>
                     </a>
                 </div>
 
