@@ -21,6 +21,16 @@ namespace DAL.Context
             }
         }
 
+        public ProductDTO GetProductById(int id)
+        {
+                using (var context = new StoreDbContext())
+                {
+                    var products = new List<ProductDTO>();
+                    ProductDTO product = context.Products.FirstOrDefault(x => x.Id == id);
+                    return product;
+                }        
+        }
+
         public List<ProductDTO> GetProducts()
         {
             using (var context = new StoreDbContext())

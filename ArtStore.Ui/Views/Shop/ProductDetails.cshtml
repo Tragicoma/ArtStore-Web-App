@@ -1,4 +1,4 @@
-﻿
+﻿@model ProductModel
 <!DOCTYPE html>
 <style>
     .shop-item {
@@ -100,17 +100,16 @@
     <div class="small_container single-product">
         <div class="row" id="item1">
             <div class="col-2">
-                <img src="~/pic/Pic1.jpg" width="500" />
+                <img src="~/pic/@Model.Picture" width="500" />
             </div>
             <div class="col-2">
-                <p>Vincents</p>
-                <h1>Starry night</h1>
-                <h4>20EUR</h4>
+                <h1>@Model.Name</h1>
+                <h4>@Model.Price.ToString("N") &euro;</h4>
                 <input type="number" value="1" />
                 <button class="btn btn-add" type="button">Add to Basket</button>
-                <button class="btn btn-remove" type="button">Remove from Basket</button>
-                <h3>Product details</h3>
-                <p>Buy a small piece of Vincet history.</p>
+                <br />
+                @*<p>by @Model.Author.FullName</p>*@
+                <p><i>@Model.Description</i></p>
             </div>
         </div>
     </div>

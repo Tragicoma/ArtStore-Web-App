@@ -26,12 +26,15 @@ namespace ArtStore.Ui.Controllers
             return View();
         }
 
-        public IActionResult ProductDetails(ProductModel pModel)
-        { 
+        public IActionResult ProductDetails(string id)
+        {
+            var pManager = new ProductManager();
+            var pDto = pManager.GetProductById(Convert.ToInt32(id));
+
+            var pm = _mapper.Map<ProductModel>(pDto);
 
 
-
-            return View(pModel);
+            return View(pm);
         }
 
         public IActionResult ShopFront()

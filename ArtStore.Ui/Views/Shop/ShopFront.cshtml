@@ -24,19 +24,18 @@
         <h2 class="title">Paintings</h2>
         @*<div class="row">*@
 
-            @foreach (var product in @Model)
+        @foreach (var product in @Model)
+        {
+
+            @using (Html.BeginForm("ProductDetails", "Shop", FormMethod.Post))
             {
-
                 <div class="art_item @product.Category col-4 ">
-                    <a asp-controller="Shop" asp-action="ProductDetails">
-                        <img src="~/pic/@product.Picture" />
-                        <h4> @product.Name </h4>
-                        <p> @product.Price.ToString("N") &euro;</p>
-                    </a>
+                    <button type="submit" style="border:0px" name="id" value="@product.ID"><img src="~/pic/@product.Picture" /></button>
+                    <h4> @product.Name </h4>
+                    <p> @product.Price.ToString("N") &euro;</p>
                 </div>
-
-
             }
+        }
 
         @*</div>*@
 
@@ -45,3 +44,4 @@
 
 
 
+@*<input type="image" src="~/pic/@product.Picture" alt="Submit">*@
