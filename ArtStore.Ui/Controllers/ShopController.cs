@@ -26,12 +26,12 @@ namespace ArtStore.Ui.Controllers
             return View();
         }
 
-        public IActionResult ProductDetails(ProductModel pModel)
+        public IActionResult ProductDetails(int? id)
         { 
 
 
 
-            return View(pModel);
+            return View();
         }
 
         public IActionResult ShopFront()
