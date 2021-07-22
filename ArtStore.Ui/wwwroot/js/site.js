@@ -7,11 +7,19 @@ $(document).ready(function () {
         var category = $(this).attr('id');
 
 
-        $('.art_item').css('display', 'none');
-        setTimeout(function () {
-            $('.' + category).css('display', '');
-        }, 300);
+        if (category == 'all') {
+            $('.art_item').css('display', 'none');
+            setTimeout(function () {
+                $('.art_item').css('display', '');
+            }, 300);
 
+        } else {
+            $('.art_item').css('display', 'none');
+            setTimeout(function () {
+                $('.' + category).css('display', '');
+            }, 300);
+
+        }
     });
 
     function AddToBasket()
@@ -20,7 +28,6 @@ $(document).ready(function () {
     }
 
 });
-
 
 
 
