@@ -59,6 +59,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 </head>
 <script>
+    /*Add function for button*/
     $(document).ready(function () {
         let baskets = document.querySelectorAll('.btn-add');
         baskets[0]
@@ -94,6 +95,42 @@
         }
         onLoadBasketNumbers();
     });
+     /*Remove function for button*/
+    $(document).ready(function () {
+        let baskets = document.querySelectorAll('.btn-remove');
+        baskets[0]
+        baskets[1]
+
+        for (let i = 0; i < baskets.length; i++) {
+            baskets[i].addEventListener('click', () => {
+                basketNumbers();
+            })
+        }
+        function onLoadBasketNumbers() {
+            productsNumbers = localStorage.getItem('basketNumbers');
+
+            if (productsNumbers) {
+                document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers;
+            }
+        }
+        function basketNumbers() {
+            console.log("Nu iet?");
+            productsNumbers = localStorage.getItem('basketNumbers');
+
+            productsNumbers = parseInt(productsNumbers);
+
+            if (productsNumbers) {
+                localStorage.setItem('basketNumbers', productsNumbers -1);
+                document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers - 1;
+                @*@ViewData["BasketData"] = productsNumbers + 1;*@
+            }
+            else {
+                localStorage.setItem('basketNumbers', 1);
+                document.querySelector('.fa-shopping-basket-container span').textContent = 1;
+            }
+        }
+        onLoadBasketNumbers();
+    });
 </script>
 
 <body>
@@ -107,6 +144,7 @@
                 <h4>@Model.Price.ToString("N") &euro;</h4>
                 <input type="number" value="1" />
                 <button class="btn btn-add" type="button">Add to Basket</button>
+                <button class="btn btn-remove" type="button">Remove</button>
                 <br />
                 @*<p>by @Model.Author.FullName</p>*@
                 <p><i>@Model.Description</i></p>
