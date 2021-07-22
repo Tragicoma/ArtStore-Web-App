@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@{ViewData["BasketData"] = 0;}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <script src="https://kit.fontawesome.com/d3814f3c81.js" crossorigin="anonymous"></script>
@@ -33,7 +34,7 @@
                             <a asp-area="" asp-controller="Shop" asp-action="Order">
                                 <svg height="45" width="45">
                                     @*<circle cx="25" cy="25" r="18" stroke="silver" stroke-width="4" fill="plum" />*@
-                                    <i class="fas fa-shopping-basket" style="color:plum; font-size:x-large"></i><span>0</span>
+                                    <span class="fa-shopping-basket-container"><i class="fas fa-shopping-basket" style="color:plum; font-size:x-large"></i><span> @ViewData["BasketData"]</span></span>
                                 </svg>
                             </a>
                         </li>
@@ -67,7 +68,7 @@
 
         </div>
         <div class="container">
-           
+
         </div>
         <div class="container">
             &copy; 2021 - SHOP
