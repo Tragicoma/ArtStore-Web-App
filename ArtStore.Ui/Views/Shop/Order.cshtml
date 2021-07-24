@@ -111,28 +111,28 @@
         }
 </style>
 <script>
-    function displayBasket() {
-        let basketItems = localStorage.getItem("productsInBasket");
-        basketItems = JSON.parse(basketItems);
+    //function displayBasket() {
+    //    let basketItems = localStorage.getItem("productsInBasket");
+    //    basketItems = JSON.parse(basketItems);
 
-        let productContainer = document.querySelector("productsInBasket");
-        ("container");
+    //    let productContainer = document.querySelector("productsInBasket");
+    //    ("container");
 
-        console.log(basketItems);
-        if (basketItems && productContainer) {
-            productContainer.innerHTML = '';
-            Object.values(basketItems).map(item => {
-                productContainer.innerHTML += `
-                     <div class="products">
-                     <img src="./pic/${item.tag}.jpg"
-                     <span>${item.name}M/span>
-                    `< div >
-                })
+    //    console.log(basketItems);
+    //    if (basketItems && productContainer) {
+    //        productContainer.innerHTML = '';
+    //        Object.values(basketItems).map(item => {
+    //            productContainer.innerHTML += `
+    //                 <div class="products">
+    //                 <img src="./pic/${item.tag}.jpg"
+    //                 <span>${item.name}M/span>
+    //                `< div >
+    //            })
 
-        }
-    }
+    //    }
+    //}
 
-    displayBasket();
+    //displayBasket();
 </script>
 
 <body>
