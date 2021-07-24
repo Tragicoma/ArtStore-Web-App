@@ -1,4 +1,5 @@
 ﻿@model ProductModel
+
 <!DOCTYPE html>
 <style>
     .shop-item {
@@ -114,7 +115,7 @@
             }
         }
         function basketNumbers() {
-            console.log("Nu iet?");
+            
             productsNumbers = localStorage.getItem('basketNumbers');
 
             productsNumbers = parseInt(productsNumbers);
@@ -122,12 +123,12 @@
             if (productsNumbers) {
                 localStorage.setItem('basketNumbers', productsNumbers -1);
                 document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers - 1;
-                @*@ViewData["BasketData"] = productsNumbers + 1;*@
+                @*@ViewData["BasketData"] = productsNumbers - 1;*@
             }
-            else {
-                localStorage.setItem('basketNumbers', 1);
-                document.querySelector('.fa-shopping-basket-container span').textContent = 1;
-            }
+            //else {
+            //    localStorage.setItem('basketNumbers', 1);
+            //    document.querySelector('.fa-shopping-basket-container span').textContent = 1;
+            //}
         }
         onLoadBasketNumbers();
     });
