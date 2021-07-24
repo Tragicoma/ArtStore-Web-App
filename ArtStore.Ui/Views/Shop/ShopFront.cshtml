@@ -30,8 +30,8 @@
             @using (Html.BeginForm("ProductDetails", "Shop", FormMethod.Post))
             {
                 <div class="art_item @product.Category col-4 ">
-                    <button type="submit" style="border:0px" name="id" value="@product.ID"><img src="~/pic/@product.Picture" /></button>
-                    <h4> @product.Name </h4>
+                    <button type="submit" style="border:0px" name="id" value="@product.ID"><img src="~/pic/@product.Picture" alt="@product.Name" /></button>
+                    <h5> @product.Name </h5>
                     <p> @product.Price.ToString("N") &euro;</p>
                 </div>
             }
