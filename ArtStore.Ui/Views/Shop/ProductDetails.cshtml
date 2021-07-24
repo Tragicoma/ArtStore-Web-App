@@ -1,5 +1,6 @@
 ﻿@model ProductModel
 
+
 <!DOCTYPE html>
 <style>
     .shop-item {
@@ -60,6 +61,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 </head>
 <script>
+
+    let products = [
+        {
+            ID: '@Model.ID',
+
+
+            name: '@Model.Name',
+            tag: 'test',
+            price: '@Model.Price',
+            inBasket:0
+        }
+    ];
+
     /*Add function for button*/
     $(document).ready(function () {
         let baskets = document.querySelectorAll('.btn-add');
@@ -68,7 +82,7 @@
 
         for (let i = 0; i < baskets.length; i++) {
             baskets[i].addEventListener('click', () => {
-                basketNumbers();
+                basketNumbers(products[i]);
             })
         }
         function onLoadBasketNumbers() {
@@ -78,8 +92,8 @@
                 document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers;
             }
         }
-        function basketNumbers() {
-            console.log("Nu iet?");
+        function basketNumbers(products) {
+          
             productsNumbers = localStorage.getItem('basketNumbers');
 
             productsNumbers = parseInt(productsNumbers);
@@ -93,8 +107,56 @@
                 localStorage.setItem('basketNumbers', 1);
                 document.querySelector('.fa-shopping-basket-container span').textContent = 1;
             }
+
+            setItems(products);
+        }
+        function setItems(products) {
+            let basketItems = localStorage.getItem('productsinBasket');
+            basketItems = JSON.parse(basketItems);
+            console.log("My basketItems are", basketItems);
+
+            if (basketItems != null) {
+
+                if (basketItems[products.tag] == undefined) {
+                    basketItems = {
+                        ...basketItems,
+                        [products.tag]: products
+                    }
+                }
+                basketItems[products.tag].inBasket += 1;
+            }
+            else {
+                products.inBasket = 1;
+                basketItems = {
+                    [products.tag]: products
+                }
+            }
+            localStorage.setItem("productsInBasket", JSON.stringify(basketItems));
+        }
+
+
+        function displayBasket() {
+            let basketItems = localStorage.getItem("productsInBasket");
+            basketItems = JSON.parse(basketItems);
+
+            let productContainer = document.querySelector("productsInBasket");
+            ("container");
+
+            console.log(basketItems);
+            if (basketItems && productContainer) {
+                productContainer.innerHTML = '';
+                Object.values(basketItems).map(item => {
+                    productContainer.innerHTML += `
+                     <div class="products">
+                     <img src="./pic/${item.tag}.jpg"
+                     <span>${item.name}M/span>
+                    `< div >
+                })
+
+            }
         }
         onLoadBasketNumbers();
+        displayBasket();
     });
      /*Remove function for button*/
     $(document).ready(function () {
@@ -115,9 +177,8 @@
             }
         }
         function basketNumbers() {
-            
-            productsNumbers = localStorage.getItem('basketNumbers');
 
+            productsNumbers = localStorage.getItem('basketNumbers');
             productsNumbers = parseInt(productsNumbers);
 
             if (productsNumbers) {
@@ -125,10 +186,7 @@
                 document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers - 1;
                 @*@ViewData["BasketData"] = productsNumbers - 1;*@
             }
-            //else {
-            //    localStorage.setItem('basketNumbers', 1);
-            //    document.querySelector('.fa-shopping-basket-container span').textContent = 1;
-            //}
+
         }
         onLoadBasketNumbers();
     });
@@ -151,6 +209,8 @@
                 <p><i>@Model.Description</i></p>
             </div>
         </div>
+        <a class="btn btn-back btn-lg" asp-controller="Shop" asp-action="ShopFront" role="button" align="right">Back</a>
+
     </div>
 </body>
 

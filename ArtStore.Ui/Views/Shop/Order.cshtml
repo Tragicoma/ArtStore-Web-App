@@ -3,6 +3,7 @@
     <title>Shopping cart</title>
     <link rel="stylesheet" type="text/css" href="~/css/site.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 </head>
 
 <style>
@@ -109,19 +110,31 @@
             border-radius: 5px;
         }
 </style>
-@*<script>
-        var removeCartItemsButtons = document.getElementsByClassName('btn product-remove')
-        console.log(removeCartItemsButtons)
-        for (var i = 0; i < removeCartItemsButtons.lenght; i++)
-        {
-            var button = removeCartItemsButtons[i]
-            button.addEventListener('click', function(event) {
-                var buttonClicked = event.target
-                buttonClicked.parentElement.parentElement.remove()
+<script>
+    function displayBasket() {
+        let basketItems = localStorage.getItem("productsInBasket");
+        basketItems = JSON.parse(basketItems);
 
-            })
+        let productContainer = document.querySelector("productsInBasket");
+        ("container");
+
+        console.log(basketItems);
+        if (basketItems && productContainer) {
+            productContainer.innerHTML = '';
+            Object.values(basketItems).map(item => {
+                productContainer.innerHTML += `
+                     <div class="products">
+                     <img src="./pic/${item.tag}.jpg"
+                     <span>${item.name}M/span>
+                    `< div >
+                })
+
         }
-    </script>*@
+    }
+
+    displayBasket();
+</script>
+
 <body>
     <div class="container">
         <h1>Basket</h1>
@@ -138,7 +151,7 @@
                 </div>
             </div>
 
-            <div class="products">
+            @*<div class="products">
                 <div class="product">
                     <img src="~/exampleForShopFront/perle.jpg" />
                     <div class="product-info">
@@ -148,16 +161,16 @@
                         <button class="btn product-remove" type="button">Remove</button>
                     </div>
                 </div>
-            </div>
+            </div>*@
 
             <div class="cart-total">
                 <p>
                     <span>Total Price</span>
-                    <span>35EUR</span>
+                    <span>20EUR</span>
                 </p>
                 <p>
                     <span>Number of Items</span>
-                    <span>2</span>
+                    <span>1</span>
                 </p>
                 <a href="#">Proceed to Checkout</a>
             </div>
