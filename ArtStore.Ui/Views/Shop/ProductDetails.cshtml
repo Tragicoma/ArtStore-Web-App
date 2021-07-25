@@ -61,24 +61,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 </head>
 <script>
-
-    let products = [
+    @*let products = [
         {
-            ID: '@Model.ID',
-
-
-            name: '@Model.Name',
-            tag: 'test',
-            price: '@Model.Price',
-            inBasket:0
+            iD: '@Model.ID',
+            tag: '@Model.Name',
+            price: '@Model.Price'
         }
-    ];
+    ];*@
 
-    /*Add function for button*/
+    @*<!--/*Add function for button*/
     $(document).ready(function () {
         let baskets = document.querySelectorAll('.btn-add');
         baskets[0]
-        baskets[1]
+        /*baskets[1]*/
 
         for (let i = 0; i < baskets.length; i++) {
             baskets[i].addEventListener('click', () => {
@@ -100,14 +95,13 @@
 
             if (productsNumbers) {
                 localStorage.setItem('basketNumbers', productsNumbers + 1);
-                document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers + 1;
-                @*@ViewData["BasketData"] = productsNumbers + 1 ;*@
-            }
+                document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers + 1;-->
+                @ViewData["BasketData"] = productsNumbers + 1 ;
+            <!--<!--}
             else {
                 localStorage.setItem('basketNumbers', 1);
                 document.querySelector('.fa-shopping-basket-container span').textContent = 1;
             }
-
             setItems(products);
         }
         function setItems(products) {
@@ -133,8 +127,6 @@
             }
             localStorage.setItem("productsInBasket", JSON.stringify(basketItems));
         }
-
-
         function displayBasket() {
             let basketItems = localStorage.getItem("productsInBasket");
             basketItems = JSON.parse(basketItems);
@@ -151,9 +143,8 @@
                      <img src="./pic/${item.tag}.jpg"
                      <span>${item.name}M/span>
                     < div >
-`
+                     `
                 });
-
             }
         }
         onLoadBasketNumbers();
@@ -184,13 +175,12 @@
 
             if (productsNumbers) {
                 localStorage.setItem('basketNumbers', productsNumbers -1);
-                document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers - 1;
-                @*@ViewData["BasketData"] = productsNumbers - 1;*@
-            }
-
+                document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers - 1;-->-->
+                @ViewData["BasketData"] = productsNumbers - 1;
+            <!--<!--}
         }
         onLoadBasketNumbers();
-    });
+    });-->*@
 </script>
 
 <body>
