@@ -14,5 +14,6 @@ namespace ArtStore.Entity
         public string Email { get; set; }
         public string ClientName { get; set; }
         public int Status { get; set; }
+        public double Sum { get; set; }
     }
 }

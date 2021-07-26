@@ -4,11 +4,9 @@ namespace ArtStore.Entity
 {
     public enum paintingCategoryEnum
     {
-        Portrait,
         Landscape,
-        StillLife,
-        Abstract,
-        PopArt,
+        Marine,
+        DigitalArt,
         Other
     }
 }

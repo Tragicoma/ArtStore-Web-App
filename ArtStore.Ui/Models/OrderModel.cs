@@ -13,6 +13,7 @@ namespace ArtStore.Ui.Models
         public string Email { get; set; }
         public string ClientName { get; set; }
         public orderStatusEnum Status { get; set; }
+        public double Sum { get; set; }
 
     }
 }
