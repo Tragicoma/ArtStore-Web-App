@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <script src="https://kit.fontawesome.com/d3814f3c81.js" crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,6 +17,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -34,7 +36,7 @@
                             <a asp-area="" asp-controller="Shop" asp-action="Order">
                                 <svg height="45" width="45">
                                     @*<circle cx="25" cy="25" r="18" stroke="silver" stroke-width="4" fill="plum" />*@
-                                    <span class="fa-shopping-basket-container"><i class="fas fa-shopping-basket" style="color:plum; font-size:x-large"></i><span> @ViewData["BasketData"]</span></span>
+                                    <span class="fa-shopping-basket-container"><i class="fas fa-shopping-basket" style="color:plum; font-size:x-large"></i><span>@ViewData["BasketData"]</span></span>
                                 </svg>
                             </a>
                         </li>

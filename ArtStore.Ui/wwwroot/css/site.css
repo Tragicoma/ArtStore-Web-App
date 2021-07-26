@@ -214,4 +214,7 @@ body {
 input:focus {
     outline: none;
 }
+.product-price::after {
+    content: '€'
+}
 

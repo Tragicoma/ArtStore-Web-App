@@ -109,6 +109,12 @@
             color: #ffffff;
             border-radius: 5px;
         }
+    .product-price::after {
+        content: '€'
+    }
+    .total-price::after {
+        content: '€'
+    }
 </style>
 
 <body>
@@ -116,15 +122,7 @@
         <h1>Basket</h1>
         <div class="basket">
             <div class="products">
-                <div class="product">
-                    <img src="~/exampleForShopFront/vincents.jpg" />
-                    <div class="product-info">
-                        <h3 class="product-name">Vincentoo</h3>
-                        <h2 class="product-price">20EUR</h2>
-                        <p class="product-quantity"><input type="number" value="1" /></p>
-                        <button class="btn product-remove" type="button">Remove</button>
-                    </div>
-                </div>
+               
             </div>
 
             @*<div class="products">
@@ -142,11 +140,11 @@
             <div class="cart-total">
                 <p>
                     <span>Total Price</span>
-                    <span>20EUR</span>
+                    <span class="total-price"></span>
                 </p>
                 <p>
                     <span>Number of Items</span>
-                    <span>1</span>
+                    <span class="all-products"></span>
                 </p>
                 <a href="#">Proceed to Checkout</a>
             </div>

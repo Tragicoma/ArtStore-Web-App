@@ -56,6 +56,14 @@
         flex-basis: 50%;
         min-width: 300px;
     }
+    .error-message{
+        color:gray;
+        font-size:14px;
+        display:none;
+    }
+    .product-price::after {
+        content: '€'
+    }
 </style>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -187,12 +195,12 @@
     <div class="small_container single-product">
         <div class="row" id="item1">
             <div class="col-2">
-                <img src="~/pic/@Model.Picture" width="500" alt="@Model.Name" />
+                <img class="product-image" src="~/pic/@Model.Picture" width="500" alt="@Model.Name" />
             </div>
             <div class="col-2">
-                <h1>@Model.Name</h1>
-                <h4>@Model.Price.ToString("N") &euro;</h4>
-                @*<input type="number" value="1" />*@
+                <h1 class="product-name" data-name="@Model.Name">@Model.Name</h1>
+                <h4 class="product-price">@Model.Price.ToString("N")</h4>
+                <p class="error-message">Hey, you can buy only one piece of artwork</p>
                 <button class="btn btn-add" type="button">Add to Basket</button>
                 <button class="btn btn-remove" type="button">Remove</button>
                 <br />
@@ -201,6 +209,7 @@
             </div>
         </div>
         <a class="btn btn-back btn-lg" asp-controller="Shop" asp-action="ShopFront" role="button" align="right">Back</a>
+        
 
     </div>
 </body>

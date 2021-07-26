@@ -1,151 +1,145 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+document.addEventListener("DOMContentLoaded", start);
+let numberBasket;
+const myJSON = [
 
+];
+function start() {
+    const addButton = document.querySelector('.btn-add');
+    if (addButton) {
+        addButton.addEventListener('click', onButtonClick);
+    }
 
-$(document).ready(function () {
-    $('.category_item').click(function () {
-        var category = $(this).attr('id');
+    const removeButton = document.querySelector('.btn-remove');
+    if (removeButton) {
+        removeButton.addEventListener('click', onButtonClickk);
+    }
 
+    const itemsInBasket = localStorage.getItem('itemsInBasket');
 
-        if (category == 'all') {
-            $('.art_item').css('display', 'none');
-            setTimeout(function () {
-                $('.art_item').css('display', '');
-            }, 300);
+    const basket = document.querySelector('.basket');
+    if (basket) {
+        basketo();
+    }
 
-        } else {
-            $('.art_item').css('display', 'none');
-            setTimeout(function () {
-                $('.' + category).css('display', '');
-            }, 300);
+    /*Ja eksistē do nothing, ja neeksiste tad pievieno ar value 0*/
+    if (itemsInBasket) {
+        numberBasket = localStorage.getItem('itemsInBasket');
+        console.log('Name exists');
+        console.log(localStorage.getItem('itemsInBasket'));
+        document.querySelector('.fa-shopping-basket-container span').textContent = numberBasket;
+    } else {
+        numberBasket = 0;
+        localStorage.setItem('itemsInBasket', numberBasket);
+        console.log('Name is not found');
+        document.querySelector('.fa-shopping-basket-container span').textContent = numberBasket;
+    }
+}
+function onButtonClick() {
+    numberBasket = parseInt(localStorage.getItem('itemsInBasket')) + 1;
+    localStorage.setItem('itemsInBasket', numberBasket);
+    document.querySelector('.fa-shopping-basket-container span').textContent = numberBasket;
 
+    /*part about product info*/
+    const productName = document.querySelector('.product-name').textContent;
+    const productPrice = document.querySelector('.product-price').textContent;
+    const productImage = document.querySelector('.product-image').src;
+
+    if (localStorage.getItem('products')) {
+        const parsed = JSON.parse(localStorage.getItem('products'));
+        const localSpace = parsed;
+        console.log(localSpace);
+
+        const newProduct = {
+            name: productName,
+            price: productPrice,
+            image: productImage
         }
-    });
-
-
-    let products = [
-        {
-            iD: "@Model.ID",
-            tag: "@Model.Name",
-            price: "@Model.Price",
-            inBasket: 0
+        console.log(newProduct);
+        localSpace.push(newProduct);
+        const stringified = JSON.stringify(localSpace);
+        localStorage.setItem('products', stringified);
+    }
+    else {
+        const newProduct = {
+            name: productName,
+            price: productPrice,
+            image: productImage
         }
-    ];
+        console.log(newProduct);
+        myJSON.push(newProduct);
+        const stringified = JSON.stringify(myJSON);
+        localStorage.setItem('products', stringified);
+    }
+    document.querySelector('.btn-add').disabled = true;
+    document.querySelector('.error-message').style.display = 'block';
+}
+function onButtonClickk() {
+    if (numberBasket) {
+        numberBasket = parseInt(localStorage.getItem('itemsInBasket')) - 1;
+        localStorage.setItem('itemsInBasket', numberBasket);
+        document.querySelector('.fa-shopping-basket-container span').textContent = numberBasket;
+        const productName = document.querySelector('.product-name').textContent;
+        const parsed = JSON.parse(localStorage.getItem('products'));
+        const localSpace = parsed;
+        const filter = localSpace.filter(product => product.name !== productName);
+        console.log(filter);
+        const stringified = JSON.stringify(filter);
+        localStorage.setItem('products', stringified);
 
-    /*Add function for button*/
-    $(document).ready(function () {
-        let baskets = document.querySelectorAll('.btn-add');
-/*        baskets[0]*/
-        /*baskets[1]*/
+        document.querySelector('.btn-add').disabled = false;
+        document.querySelector('.error-message').style.display = 'none';
+    }
+}
+/*sending info to basket*/
+function basketo() {
+    let price = 0;
 
-        for (let i = 0; i < baskets.length; i++) {
-            baskets[i].addEventListener('click', () => {
-                basketNumbers(products[i]);
-            })
-        }
-        function onLoadBasketNumbers() {
-            productsNumbers = localStorage.getItem('basketNumbers');
+    const products = JSON.parse(localStorage.getItem('products'));
 
-            if (productsNumbers) {
-                document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers;
-            }
-        }
-        function basketNumbers(products) {
+    products.forEach(product => {
+        const convertNumber = parseInt(product.price);
+        price += convertNumber;
+        console.log(convertNumber);
 
-            productsNumbers = localStorage.getItem('basketNumbers');
+        const productContainer = document.createElement('div');
+        productContainer.classList.add('product');
+        const productImage = document.createElement('img');
+        productImage.classList.add('product-picture');
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+        const productName = document.createElement('h3');
+        productName.classList.add('product-name');
+        const productPrice = document.createElement('h2');
+        productPrice.classList.add('product-price');
+        const productButton = document.createElement('button');
+        productButton.classList.add('btn');
+        productButton.classList.add('product-remove');
+        const productsContainer = document.querySelector('.products');
+        productsContainer.appendChild(productContainer);
+        productContainer.appendChild(productImage);
+        productContainer.appendChild(productInfo);
+        productInfo.appendChild(productName);
+        productInfo.appendChild(productPrice);
+        productInfo.appendChild(productButton);
 
-            productsNumbers = parseInt(productsNumbers);
+        productImage.src = product.image;
+        productName.innerHTML = product.name;
+        productPrice.innerHTML = product.price;
+        productButton.innerHTML = 'remove';
+    })
 
-            if (productsNumbers) {
-                localStorage.setItem('basketNumbers', productsNumbers + 1);
-                document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers + 1;
-                /*@ViewData["BasketData"] = productsNumbers + 1;*/
-            }
-            else {
-                localStorage.setItem('basketNumbers', 1);
-                document.querySelector('.fa-shopping-basket-container span').textContent = 1;
-            }
-            setItems(products);
-        }
-        function setItems(products) {
-            let basketItems = localStorage.getItem('productsinBasket');
-            basketItems = JSON.parse(basketItems);
-            console.log("My basketItems is", basketItems);
+    const totalPrice = document.querySelector('.total-price');
+    totalPrice.innerHTML = price;
 
-            if (basketItems != null) {
-                if (basketItems[products.tag] == undefined) {
-                    basketItems = {
-                        ...basketItems,
-                        [products.tag]: products
-                    }
-                }
-                basketItems[products.tag].inBasket += 1;
-            }
-            else {
-                products.inBasket = 1;
-                basketItems = {
-                    [products.tag]: products
-                }
-            }
-            localStorage.setItem("productsInBasket", JSON.stringify(basketItems));
-        }
+    document.querySelector('.all-products').innerHTML = products.length;
 
-        /*Shows in basket what in local storage*/
-        function displayBasket() {
-            let basketItems = localStorage.getItem("productsInBasket");
-            basketItems = JSON.parse(basketItems);
+}
 
-            let productContainer = document.querySelector("productsInBasket");
-            ('.container');
 
-            console.log(basketItems);
-            if (basketItems && productContainer) {
-                productContainer.innerHTML = '';
-                Object.values(basketItems).map(item => {
-                    productContainer.innerHTML += `
-                     <div class="products">
-                     <img src="./pic/${item.tag}.jpg"> ///tag in product is not pic
-                     <span>${item.price}</span>
-                    < div >
-                     `
-                });
-            }
-        }
-        onLoadBasketNumbers();
-        displayBasket();
-    });
-    /*Remove function for button*/
-    $(document).ready(function () {
-        let baskets = document.querySelectorAll('.btn-remove');
-        baskets[0]
-        baskets[1]
 
-        for (let i = 0; i < baskets.length; i++) {
-            baskets[i].addEventListener('click', () => {
-                basketNumbers();
-            })
-        }
-        function onLoadBasketNumbers() {
-            productsNumbers = localStorage.getItem('basketNumbers');
 
-            if (productsNumbers) {
-                document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers;
-            }
-        }
-        function basketNumbers() {
 
-            productsNumbers = localStorage.getItem('basketNumbers');
-            productsNumbers = parseInt(productsNumbers);
-
-            if (productsNumbers) {
-                localStorage.setItem('basketNumbers', productsNumbers - 1);
-                document.querySelector('.fa-shopping-basket-container span').textContent = productsNumbers - 1;
-                /*@ViewData["BasketData"] = productsNumbers - 1;*/
-            }
-        }
-        onLoadBasketNumbers();
-    });
-});
 
 
 
