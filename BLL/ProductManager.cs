@@ -16,12 +16,26 @@ namespace BLL
 
         }
 
+        public void DeleteById(int id)
+        {
+            var repo = new StoreRepository();
+            repo.DeleteById(id);
+        }
+
         public ProductDTO GetProductById(int id)
         {
             var repo = new StoreRepository();
             var product = repo.GetProductById(id);
 
             return product;
+        }
+
+        public PaintingAuthorDTO GetAuthorById(int id)
+        {
+            var repo = new StoreRepository();
+            var authorDto = repo.GetAuthorById(id);
+
+            return authorDto;
         }
 
         public List<ProductDTO> GetShopFrontProducts()
@@ -31,5 +45,15 @@ namespace BLL
 
             return productList;
         }
+
+        public List<PaintingAuthorDTO> GetAuthors()
+        {
+            var repo = new StoreRepository();
+            var productList = repo.GetAuthors();
+
+            return productList;
+        }
+
+
     }
 }

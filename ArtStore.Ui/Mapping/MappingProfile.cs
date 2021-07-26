@@ -18,7 +18,6 @@ namespace ArtStore.Ui.Mapping
             CreateMap<PaintingDTO,PaintingModel>();
             CreateMap<ProductDTO, ProductModel>();
             CreateMap<OrderLineDTO, OrderLineModel>();
-
         }
     }
 }

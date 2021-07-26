@@ -15,9 +15,19 @@ namespace DAL.Context
 
             using (var context = new StoreDbContext())
             {
-                context.Add(product);
+                context.Products.Add(product);
                 context.SaveChanges();
 
+            }
+        }
+
+        public void DeleteById(int id)
+        {
+            using(var context = new StoreDbContext())
+            {
+                ProductDTO product = context.Products.FirstOrDefault(x => x.Id == id);
+                context.Products.Remove(product);
+                context.SaveChanges();
             }
         }
 
@@ -31,6 +41,16 @@ namespace DAL.Context
                 }        
         }
 
+        public PaintingAuthorDTO GetAuthorById(int id)
+        {
+            using (var context = new StoreDbContext())
+            {
+
+                PaintingAuthorDTO authorDto = context.Authors.FirstOrDefault(x => x.Id == id);
+                return authorDto;
+            }
+        }
+
         public List<ProductDTO> GetProducts()
         {
             using (var context = new StoreDbContext())
@@ -39,6 +59,16 @@ namespace DAL.Context
                 return productList;
             }
             
+        }
+
+        public List<PaintingAuthorDTO> GetAuthors()
+        {
+            using (var context = new StoreDbContext())
+            {
+                var AuthorList = context.Authors.ToList();
+                return AuthorList;
+            }
+
         }
     }
 }
