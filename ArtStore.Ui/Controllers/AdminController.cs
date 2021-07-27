@@ -69,6 +69,26 @@ namespace ArtStore.Ui.Controllers
             return RedirectToAction("ProductEdit", "Admin");
         }
 
+        public ActionResult Edit(int id, string name, double price, int author, int category, string descrip)
+        {
+
+            var pManager = new ProductManager();
+
+            var product = pManager.GetProductById(id);
+            product.Name = name;
+            product.Price = price;
+            product.Author = pManager.GetAuthorById(author);
+            product.Category = category;
+            product.Description = descrip;
+
+            pManager.UpdateProduct(product);
+
+
+            return RedirectToAction("ProductEdit", "Admin");
+        }
+
+
+
         [HttpPost]
         public ActionResult AddProduct(string name, double price,int author, int category, string descrip)
         {

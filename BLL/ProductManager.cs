@@ -30,6 +30,12 @@ namespace BLL
             return product;
         }
 
+        public void UpdateProduct(ProductDTO product)
+        {
+            var repo = new StoreRepository();
+            repo.UpdateProduct(product);
+        }
+
         public PaintingAuthorDTO GetAuthorById(int id)
         {
             var repo = new StoreRepository();
