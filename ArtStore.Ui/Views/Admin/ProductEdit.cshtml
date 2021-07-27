@@ -1,4 +1,4 @@
-﻿@using ArtStore.Entity
+﻿
 @model dynamic
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <div class=" row" style="margin-top:50px">
         <div class="col">
             <p>
-                <button class="btn"  type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     Add new product
                 </button>
             </p>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label for="upPicture">Product Picture:</label>
-                            <input name="pic "type="file" accept="image/png, image/gif, image/jpeg" value="Upload" class="form-control-file" id="upPicture">
+                            <input name="pic " type="file" accept="image/png, image/gif, image/jpeg" value="Upload" class="form-control-file" id="upPicture">
                         </div>
 
                         <button class="btn" type="submit">ADD</button>
@@ -65,27 +65,36 @@
                         <th scope="col">ID</th>
                         <th colspan="2">Name</th>
                         <th scope="col">Price</th>
-                        <th colspan="1"></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var product in @Model.Products)
                     {
+
+                    <tr>
+                        <td>@product.ID</td>
+                        <td colspan="2">@product.Name</td>
+                        <td colspan="1">@product.Price.ToString("N") &euro;</td>
+                        @using (Html.BeginForm("Edit", "Admin", FormMethod.Post))
+                        {
+                            <td><button type="submit" name="id" value="@product.ID" class="btn btn-sm" style="color:white; margin:0px;"><i class="fas fa-edit"></i></button></td>
+                        }
+
                         @using (Html.BeginForm("Delete", "Admin", FormMethod.Post))
                         {
-                            <tr>
-                                <td>@product.ID</td>
-                                <td colspan="2">@product.Name</td>
-                                <td colspan="1">@product.Price.ToString("N") &euro;</td>
-                                <td colspan="1" style="text-align:right"><button type="submit" name="id" value="@product.ID" onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-sm" style="color:white; margin:0px"><i class="fas fa-trash-alt"></i></button></td>
-                            </tr>
+                            <td><button type="submit" name="id" value="@product.ID" onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-sm" style="color:white; margin:0px;"><i class="fas fa-trash-alt"></i></button></td>
                         }
+
+                    </tr>
+
                     }
                 </tbody>
             </table>
         </div>
         <div class="col">
-            
+
 
 
             <h4>Current orders</h4>

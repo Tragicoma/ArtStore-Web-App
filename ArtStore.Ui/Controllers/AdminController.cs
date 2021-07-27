@@ -81,8 +81,8 @@ namespace ArtStore.Ui.Controllers
                 Price = price,
                 //Author = pManager.GetAuthorById(author),
                 Category = category,
-                Description = descrip
-                //Picture = pic.FileName
+                Description = descrip,
+                Picture = "Default_pic.png"
             };
 
             pManager.AddProduct(newp);
