@@ -26,7 +26,7 @@ namespace ArtStore.Ui.Controllers
         public IEnumerable<ProductDTO> Products { get; set; }
         public IEnumerable<PaintingAuthorDTO> Authors { get; set; }
 
-        public ActionResult ProductEdit()
+        public ActionResult ProductEdit(string type)
         {
             var pManager = new ProductManager();
 
