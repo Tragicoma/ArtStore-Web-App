@@ -1,6 +1,6 @@
 ﻿
 document.addEventListener("DOMContentLoaded", start);
-let numberBasket;
+let numberBasket = 0;
 const myJSON = [
 
 ];
@@ -91,6 +91,7 @@ function onButtonClickk() {
         document.querySelector('.error-message').style.display = 'none';
     }
 }
+
 /*sending info to basket*/
 function basketo() {
     let price = 0;
@@ -104,6 +105,9 @@ function basketo() {
 
         const productContainer = document.createElement('div');
         productContainer.classList.add('product');
+
+        productContainer.setAttribute('data-name', product.name);
+
         const productImage = document.createElement('img');
         productImage.classList.add('product-picture');
         const productInfo = document.createElement('div');
@@ -115,6 +119,7 @@ function basketo() {
         const productButton = document.createElement('button');
         productButton.classList.add('btn');
         productButton.classList.add('product-remove');
+        productButton.setAttribute('data-name', product.name);
         const productsContainer = document.querySelector('.products');
         productsContainer.appendChild(productContainer);
         productContainer.appendChild(productImage);
@@ -126,21 +131,60 @@ function basketo() {
         productImage.src = product.image;
         productName.innerHTML = product.name;
         productPrice.innerHTML = product.price;
-        productButton.innerHTML = 'remove';
-    })
+        productButton.innerHTML = 'Remove';
 
+        productButton.addEventListener('click', function (event) {  /*sakas funkcija, jo event citadi nestrada*/
+            console.log(event.target);
+            const storage = JSON.parse(localStorage.getItem('products'));
+            console.log(storage);
+            storage.forEach(product => {
+                console.log(product.name);
+                if (event.target.dataset.name == product.name) {  /*target-tiesi to pogu un ja pogas dataset names ir vienas ar to produktu tad mes sakam darbibu*/
+                    const filter = storage.filter(product => product.name !== event.target.dataset.name); /*removes from localStor*/
+                    console.log(filter);
+                    const stringified = JSON.stringify(filter);
+                    localStorage.setItem('products', stringified);
+                    event.target.parentElement.parentElement.remove();  /*visualy disappears*/
+
+                    const convertNumber = parseInt(product.price);
+                    price -= convertNumber;
+                    const totalPrice = document.querySelector('.total-price');
+                    totalPrice.innerHTML = price;
+
+                    document.querySelector('.all-products').innerHTML = filter.length;
+
+                    localStorage.setItem('itemsInBasket', filter.length);
+                    document.querySelector('.fa-shopping-basket-container span').textContent = filter.length;
+                }
+            })
+        });
+    })
+    /*total price thing*/
     const totalPrice = document.querySelector('.total-price');
     totalPrice.innerHTML = price;
-
+    /*total products*/
     document.querySelector('.all-products').innerHTML = products.length;
 
+
+    
 }
 
+/*filter function in shopfront*/
+$(document).ready(function () {
+    $('.category_item').click(function () {
+        var category = $(this).attr('id');
 
+        if (category == 'all') {
+            $('.art_item').css('display', 'none');
+            setTimeout(function () {
+                $('.art_item').css('display', '');
+            }, 300);
 
-
-
-
-
-
-
+        } else {
+            $('.art_item').css('display', 'none');
+            setTimeout(function () {
+                $('.' + category).css('display', '');
+            }, 300);
+        }
+    });
+})
