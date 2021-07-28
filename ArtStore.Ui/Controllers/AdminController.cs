@@ -26,6 +26,8 @@ namespace ArtStore.Ui.Controllers
         public IEnumerable<ProductDTO> Products { get; set; }
         public IEnumerable<PaintingAuthorDTO> Authors { get; set; }
 
+
+
         public ActionResult ProductEdit()
         {
             var pManager = new ProductManager();
@@ -55,7 +57,6 @@ namespace ArtStore.Ui.Controllers
             dynList.Authors = listA;
 
 
-
             return View(dynList);
         }
 
@@ -77,7 +78,7 @@ namespace ArtStore.Ui.Controllers
             var product = pManager.GetProductById(id);
             product.Name = name;
             product.Price = price;
-            product.Author = pManager.GetAuthorById(author);
+            product.Author.Id = pManager.GetAuthorById(author).Id;
             product.Category = category;
             product.Description = descrip;
 
@@ -99,7 +100,7 @@ namespace ArtStore.Ui.Controllers
             {
                 Name = name,
                 Price = price,
-                //Author = pManager.GetAuthorById(author),
+                AuthorId = pManager.GetAuthorById(author).Id,
                 Category = category,
                 Description = descrip,
                 Picture = "Default_pic.png"
