@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class ArtMirations : Migration
+    public partial class smthng : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20210728112457_ArtMirations")]
-    partial class ArtMirations
+    [Migration("20210728181112_smthng")]
+    partial class smthng
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
