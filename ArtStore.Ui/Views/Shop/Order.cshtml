@@ -120,24 +120,15 @@
     </style>
 
     <script>
-        function GetBasketProducts() {
+        function GetSelectedProduct() {
             $.ajax({
-                url: 'Shop/OpenOrder',
+                url: 'Shop/ProductEdit',
                 type: 'POST',
-                data: { 'type': $("#dropdownType option:selected").val() },
-                dataType: 'json',
+                data: { 'ddlProduct': $("#dropdownType option:selected").val() },
+                dataType: 'string',
                 error: function (xhr) {
                     alert('Error');
                 },
-                success: function (result) {
-                    var select = $("#dropdownSize option");
-                    result.forEach(function (item) {
-                        for (var i = 1; i < select.length; i++) {
-                            select[i].remove();
-                        };
-                        $('#dropdownSize').append('<option value="' + item + '">' + item + '</option>');
-                    });
-                }
             });
         }
     </script>
@@ -162,7 +153,7 @@
                 <p>
                     <span>Number of Items</span>
                     <span class="all-products"></span>
-                    <button class="btn" onclick="GetBasketProducts()" style="float:right">Create Order</button>
+                    <button class="btn" onclick="" style="float:right">Create Order</button>
                 </p>
             </div>
 

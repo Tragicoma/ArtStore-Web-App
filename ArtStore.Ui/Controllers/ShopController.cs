@@ -58,5 +58,10 @@ namespace ArtStore.Ui.Controllers
 
         }
 
+        public IActionResult Finalize(List<string> list)
+        {
+            return View();
+        }
+
     }
 }
