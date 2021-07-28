@@ -99,7 +99,7 @@ namespace ArtStore.Ui.Controllers
             {
                 Name = name,
                 Price = price,
-                //Author = pManager.GetAuthorById(author),
+                AuthorId = pManager.GetAuthorById(author).Id,
                 Category = category,
                 Description = descrip,
                 Picture = "Default_pic.png"
