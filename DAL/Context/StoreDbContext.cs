@@ -13,8 +13,8 @@ namespace ArtStore.DAL.Context
         public DbSet<OrderLineDTO> OrderLines { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
+       optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb; Database=ART-DB",
+           options => options.EnableRetryOnFailure());
 
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb; Database=ART-DB");
-    
     }
 }

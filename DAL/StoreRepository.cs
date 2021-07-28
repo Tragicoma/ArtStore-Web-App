@@ -31,6 +31,16 @@ namespace DAL.Context
             }
         }
 
+        public void UpdateProduct(ProductDTO product)
+        {
+            using (var context = new StoreDbContext())
+            {
+                context.Products.Update(product);
+                context.SaveChanges();
+
+            }
+        }
+
         public ProductDTO GetProductById(int id)
         {
                 using (var context = new StoreDbContext())
