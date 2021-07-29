@@ -7,16 +7,19 @@
 
 </head>
 <body>
-    <div style="display:grid; grid-auto-columns:50% 50%">
-        <div class="col">
-            <p>
-                <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Add new product
-                </button>
-                <button class="btn" type="button" data-toggle="collapse" data-target="#collapseEdit" aria-expanded="false" aria-controls="collapseEdit">
-                    Edit product
-                </button>
-            </p>
+
+    <p>
+        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Add new product
+        </button>
+        <button class="btn" type="button" data-toggle="collapse" data-target="#collapseEdit" aria-expanded="false" aria-controls="collapseEdit">
+            Edit product
+        </button>
+    </p>
+
+    <div style="display: grid; grid-template-columns: 50% 50%; grid-gap: 15px;">
+
+        <div>
 
             @*Create new product*@
 
@@ -110,7 +113,7 @@
             @*List of products*@
 
             <h4 style="margin:10px">Products in shop</h4>
-            <table class="table table-hover" >
+            <table class="table table-hover">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">ID</th>
@@ -144,12 +147,12 @@
         </div>
 
 
-        <div class="col">
+        <div>
 
 
 
-            <h4>Current orders</h4>
-            <table class="table" style="width:600px">
+            <h4 style="margin:10px">Current orders</h4>
+            <table class="table">
                 <thead class="thead-light">
                     <tr>
                         <th>ID</th>
@@ -166,7 +169,7 @@
 
                         <tr>
                             <td>@order.Id</td>
-                            <td>@order.Date </td>
+                            <td>@order.Date.ToString("MM/dd/yyyy") </td>
                             <td>@order.ClientName</td>
                             <td>@order.Sum</td>
                             <td>@order.Status</td>
