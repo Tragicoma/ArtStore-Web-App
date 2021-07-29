@@ -4,7 +4,7 @@ namespace ArtStore.Entity
 {
     public enum paintingCategoryEnum
     {
-        Landscape,
+        Landscape=1,
         Marine,
         DigitalArt,
         Other

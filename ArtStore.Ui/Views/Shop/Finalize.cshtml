@@ -1,5 +1,4 @@
-﻿
-
+﻿@model List<ProductModel>
 
 
 <!DOCTYPE html>
@@ -10,7 +9,35 @@
 
 </head>
 
+
+
+
+
 <body>
+
+    <h3>Order Details</h3>
+
+    <table class="table" style="width:600px">
+        <thead class="thead-light">
+            <tr>
+                <th colspan="2">Name</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @*@foreach (var product in @Model)
+            {
+
+                <tr>
+                   <td>@product.Name</td>
+                    <td>@product.Price</td>
+                </tr>
+
+            }*@
+            <tr class="productPrice"> </tr>
+        </tbody>
+    </table>
+
 
 </body>
 

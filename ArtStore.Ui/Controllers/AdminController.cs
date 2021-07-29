@@ -26,6 +26,7 @@ namespace ArtStore.Ui.Controllers
         public IEnumerable<ProductDTO> Products { get; set; }
         public IEnumerable<PaintingAuthorDTO> Authors { get; set; }
 
+        public IEnumerable<OrderDTO> Orders { get; set; }
 
 
         public ActionResult ProductEdit()
@@ -51,11 +52,20 @@ namespace ArtStore.Ui.Controllers
                 listA.Add(model);
             }
 
+            Orders = pManager.GetOrders();
+
+            var listO = new List<OrderModel>();
+            foreach (var item in Orders)
+            {
+                var model = _mapper.Map<OrderModel>(item);
+                listO.Add(model);
+            }
+
 
             dynamic dynList = new ExpandoObject();
             dynList.Products = listP;
             dynList.Authors = listA;
-
+            dynList.Orders = listO;
 
             return View(dynList);
         }
@@ -76,11 +86,17 @@ namespace ArtStore.Ui.Controllers
             var pManager = new ProductManager();
 
             var product = pManager.GetProductById(id);
-            product.Name = name;
+
+
+            if(name!=null)
+                product.Name = name;
+
+            
             product.Price = price;
-            product.Author.Id = pManager.GetAuthorById(author).Id;
             product.Category = category;
-            product.Description = descrip;
+
+            if(descrip!=null)
+                product.Description = descrip;
 
             pManager.UpdateProduct(product);
 

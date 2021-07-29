@@ -60,6 +60,13 @@ namespace BLL
             return productList;
         }
 
+        public List<OrderDTO> GetOrders()
+        {
+            var repo = new StoreRepository();
+            var orderList = repo.GetOrders();
+
+            return orderList;
+        }
 
     }
 }

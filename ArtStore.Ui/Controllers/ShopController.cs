@@ -58,10 +58,15 @@ namespace ArtStore.Ui.Controllers
 
         }
 
-        public IActionResult Finalize(List<string> list)
-        {
+        public IActionResult Finalize(List<ProductModel> list)
+        { 
             return View();
         }
 
+
+        public IActionResult SendOrder()
+        {
+            return View();
+        }
     }
 }

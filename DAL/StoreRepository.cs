@@ -80,5 +80,14 @@ namespace DAL.Context
             }
 
         }
+
+        public List<OrderDTO> GetOrders()
+        {
+            using (var context = new StoreDbContext())
+            {
+                var OrderList = context.Orders.ToList();
+                return OrderList;
+            }
+        }
     }
 }
