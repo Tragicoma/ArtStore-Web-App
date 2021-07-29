@@ -91,15 +91,15 @@ function onButtonClickk() {
         document.querySelector('.error-message').style.display = 'none';
     }
 }
-
 /*sending info to basket*/
 function basketo() {
     let price = 0;
+    price.toFixed(2);
 
     const products = JSON.parse(localStorage.getItem('products'));
 
     products.forEach(product => {
-        const convertNumber = parseInt(product.price);
+        const convertNumber = parseFloat(product.price);
         price += convertNumber;
         console.log(convertNumber);
 
@@ -146,7 +146,7 @@ function basketo() {
                     localStorage.setItem('products', stringified);
                     event.target.parentElement.parentElement.remove();  /*visualy disappears*/
 
-                    const convertNumber = parseInt(product.price);
+                    const convertNumber = parseFloat(product.price);
                     price -= convertNumber;
                     const totalPrice = document.querySelector('.total-price');
                     totalPrice.innerHTML = price;
@@ -165,8 +165,6 @@ function basketo() {
     /*total products*/
     document.querySelector('.all-products').innerHTML = products.length;
 
-
-    
 }
 
 /*filter function in shopfront*/
